@@ -13,5 +13,13 @@ module Sufia
       self.presenter_class = Sufia::CollectionPresenter
       self.form_class = Sufia::Forms::CollectionForm
     end
+
+    protected
+
+      def form
+        @form ||= form_class.new(@collection, current_ability)
+        # @user_info = current_user.user_key
+      end
+
   end
 end
