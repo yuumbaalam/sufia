@@ -13,8 +13,4 @@ describe 'batch_edits/edit.html.erb' do
     view.lookup_context.view_paths.push "#{CurationConcerns::Engine.root}/app/views/curation_concerns/base"
     render
   end
-
-  it "draws tooltip for description" do
-    expect(rendered).to have_selector ".generic_work_description a i.help-icon"
-  end
 end
