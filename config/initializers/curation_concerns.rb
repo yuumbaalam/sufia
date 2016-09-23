@@ -77,7 +77,7 @@ CurationConcerns.configure do |config|
   config.dashboard_configuration[:actions][:admin_sets] = { partials: ['hi_there'] }
 
   config.dashboard_configuration[:menu][:features] = {}
-  config.dashboard_configuration[:actions][:features] = { partials: ['hi_there'] }
+  config.dashboard_configuration[:actions][:features] = {  }
 
   config.dashboard_configuration[:menu][:stats] = { controller: 'stats' }
   config.dashboard_configuration[:actions][:stats] = { action: 'show' }

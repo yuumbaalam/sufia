@@ -157,9 +157,14 @@ Sufia::Engine.routes.draw do
   CurationConcerns::Engine.routes.draw do
     namespace :admin do
       get :admin_sets
-      get :features
-      # get :stats
       get :hello_world
+      get :stats, controller: 'stats', action: 'show'
+      resources :features, controller: 'features', only: [:index] do
+        resources :strategies, only: [:update, :destroy]
+      end
+      #get :features, controller: 'features', action: 'index'
+      #     resources :strategies, only: [:update, :destroy]
+      #   end
       get :stats, controller: 'stats', action: 'show'
     end
   end
