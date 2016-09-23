@@ -1,0 +1,9 @@
+en:
+  curation_concerns:
+    dashboard:
+      menu:
+        resource_details: "Resource Details"
+        admin_sets: "Admin Sets"
+        features: "Features"
+        stats: "Stats"
+        hello_world: "Hello World"

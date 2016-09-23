@@ -47,6 +47,7 @@
 //= require sufia/sorting
 //= require curation_concerns/batch_select
 //= require curation_concerns/single_use_links_manager
+//= require curation_concerns/charts
 //= require sufia/dashboard_actions
 //= require sufia/batch
 //= require sufia/flot_stats

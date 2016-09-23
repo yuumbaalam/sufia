@@ -142,14 +142,29 @@ Sufia::Engine.routes.draw do
 
   resources :admin_sets, controller: 'sufia/admin_sets'
 
-  resource :admin, controller: 'sufia/admin', only: [:show]
-  scope 'admin', module: 'sufia/admin', as: 'admin' do
-    resources :admin_sets
-    resource 'stats', only: [:show]
-    resources :features, only: [:index] do
-      resources :strategies, only: [:update, :destroy]
+
+
+
+  # resource :admin, controller: 'sufia/admin', only: [:show]
+  # scope 'admin', module: 'sufia/admin', as: 'admin' do
+  #   resources :admin_sets
+  #   resource 'stats', only: [:show]
+  #   resources :features, only: [:index] do
+  #     resources :strategies, only: [:update, :destroy]
+  #   end
+  # end
+
+  CurationConcerns::Engine.routes.draw do
+    namespace :admin do
+      get :admin_sets
+      get :features
+      # get :stats
+      get :hello_world
+      get :stats, controller: 'stats', action: 'show'
     end
   end
+
+
 
   resources :content_blocks, only: ['create', 'update']
   get 'featured_researchers' => 'content_blocks#index', as: :featured_researchers

@@ -1,0 +1,5 @@
+@import "curation_concerns/admin";
+.partial-stats {
+  @include widget-partial;
+  background-color: #ffffff;
+}
