@@ -21,6 +21,12 @@ module Sufia
 
     def new
       curation_concern.depositor = current_user.user_key
+      curation_concern.state = 'http://fedora.info/definitions/1/0/access/ObjState#inactive'
+      super
+    end
+
+    def edit
+      curation_concern.state = curation_concern.state.rdf_label.first unless curation_concern.state.nil?
       super
     end
 
@@ -47,6 +53,11 @@ module Sufia
         # Strip out any BrowseEverthing files from the regular uploads.
         attributes[:uploaded_files] = uploaded_files -
                                       browse_everything_urls
+
+        # Allow form to pass the state parameter to the actor
+        state = params.fetch(form_class.model_name.param_key)[:state]
+        attributes[:state] = ::RDF::URI.new(state) unless state.nil?
+
         attributes
       end
 

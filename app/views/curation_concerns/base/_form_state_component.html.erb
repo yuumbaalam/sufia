@@ -1,0 +1,17 @@
+    <fieldset>
+      <legend class="legend-save-work">Mediation State</legend>
+      <ul class="state">
+        <li class="radio">
+          <label>
+            <%= f.radio_button :state, 'http://fedora.info/definitions/1/0/access/ObjState#active' %>
+            <%= 'Active (approved)' %>
+          </label>
+        </li>
+        <li class="radio">
+          <label>
+            <%= f.radio_button :state, 'http://fedora.info/definitions/1/0/access/ObjState#inactive' %>
+            <%= 'Inactive' %>
+          </label>
+        </li>
+      </ul>
+    </fieldset>

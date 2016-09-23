@@ -65,6 +65,44 @@ describe 'curation_concerns/base/_form_progress.html.erb', type: :view do
         expect(page).to have_link 'Deposit Agreement', href: '/agreement'
       end
     end
+
+    context "with mediated deposit" do
+      context "flipped on" do
+        before do
+          allow(Flipflop).to receive(:enable_mediated_deposit?).and_return(true)
+        end
+        context "for an admin user" do
+          before do
+            allow(user).to receive(:admin?).and_return(true)
+          end
+          it "shows the mediated deposit toggles " do
+            expect(page).to have_content 'Mediation State'
+            expect(page).to have_selector('input#generic_work_state_httpfedorainfodefinitions10accessobjstateactive')
+            expect(page).to have_selector('input#generic_work_state_httpfedorainfodefinitions10accessobjstateinactive')
+          end
+        end
+        context "for a non-admin user" do
+          before do
+            allow(user).to receive(:admin?).and_return(false)
+          end
+          it "doesn't show the mediated deposit toggles " do
+            expect(page).not_to have_content 'Mediation State'
+            expect(page).not_to have_selector('input#generic_work_state_httpfedorainfodefinitions10accessobjstateactive')
+            expect(page).not_to have_selector('input#generic_work_state_httpfedorainfodefinitions10accessobjstateinactive')
+          end
+        end
+      end
+      context "flipped off" do
+        before do
+          allow(Flipflop).to receive(:enable_mediated_deposit?).and_return(false)
+        end
+        it "doesn't show the mediated deposit toggles " do
+          expect(page).not_to have_content 'Mediation State'
+          expect(page).not_to have_selector('input#generic_work_state_httpfedorainfodefinitions10accessobjstateactive')
+          expect(page).not_to have_selector('input#generic_work_state_httpfedorainfodefinitions10accessobjstateinactive')
+        end
+      end
+    end
   end
 
   context "when the work has been saved before" do
