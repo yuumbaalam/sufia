@@ -77,14 +77,13 @@ CurationConcerns.configure do |config|
   config.dashboard_configuration[:actions][:admin_sets] = { partials: ['hi_there'] }
 
   config.dashboard_configuration[:menu][:features] = {}
-  config.dashboard_configuration[:actions][:features] = {  }
+  config.dashboard_configuration[:actions][:features] = {}
 
   config.dashboard_configuration[:menu][:stats] = { controller: 'stats' }
   config.dashboard_configuration[:actions][:stats] = { action: 'show' }
 
   config.dashboard_configuration[:menu][:hello_world] = {}
   config.dashboard_configuration[:actions][:hello_world] = { partials: ['hi_there'] }
-
 end
 
 Date::DATE_FORMATS[:standard] = '%m/%d/%Y'

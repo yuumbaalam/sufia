@@ -142,9 +142,6 @@ Sufia::Engine.routes.draw do
 
   resources :admin_sets, controller: 'sufia/admin_sets'
 
-
-
-
   # resource :admin, controller: 'sufia/admin', only: [:show]
   # scope 'admin', module: 'sufia/admin', as: 'admin' do
   #   resources :admin_sets
@@ -162,14 +159,12 @@ Sufia::Engine.routes.draw do
       resources :features, controller: 'features', only: [:index] do
         resources :strategies, only: [:update, :destroy]
       end
-      #get :features, controller: 'features', action: 'index'
+      # get :features, controller: 'features', action: 'index'
       #     resources :strategies, only: [:update, :destroy]
       #   end
       get :stats, controller: 'stats', action: 'show'
     end
   end
-
-
 
   resources :content_blocks, only: ['create', 'update']
   get 'featured_researchers' => 'content_blocks#index', as: :featured_researchers
