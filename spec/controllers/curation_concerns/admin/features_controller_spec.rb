@@ -1,6 +1,7 @@
 require 'spec_helper'
 
-RSpec.describe Sufia::Admin::FeaturesController do
+RSpec.describe CurationConcerns::Admin::FeaturesController do
+  routes { CurationConcerns::Engine.routes }
   describe "#index" do
     before do
       sign_in user
@@ -10,7 +11,7 @@ RSpec.describe Sufia::Admin::FeaturesController do
     context "when not authorized" do
       it "redirects away" do
         get :index
-        expect(response).to redirect_to root_path
+        expect(response).to redirect_to main_app.root_path
       end
     end
 
