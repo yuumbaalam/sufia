@@ -1,6 +1,6 @@
 # Use this file to reference specific commits of gems.
 gem 'flipflop', git: 'https://github.com/jcoyne/flipflop.git', branch: 'hydra'
-gem 'curation_concerns', github: 'projecthydra/curation_concerns', branch: 'no_js_error'
+gem 'curation_concerns', github: 'projecthydra/curation_concerns', branch: 'master'
 
 group :development do
   gem 'better_errors'
